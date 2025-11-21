@@ -1,0 +1,22 @@
+{
+  "name": "mini-store-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octavianChiriches/mini-store-final.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/octavianChiriches/mini-store-final/issues"
+  },
+  "homepage": "https://github.com/octavianChiriches/mini-store-final#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1"
+  }
+}
