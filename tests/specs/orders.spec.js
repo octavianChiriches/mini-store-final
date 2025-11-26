@@ -8,7 +8,7 @@ import { OrdersPage } from '../pages/orders.page';
 
 
 
-test.describe('💳 Payment tests', () => {
+test.describe('💳 Orders tests', () => {
 
     let cartPage;
     let catalogPage;
@@ -28,23 +28,14 @@ test.describe('💳 Payment tests', () => {
         await catalogPage.navigateToTheCatalogPage();
         await catalogPage.addItemToCart(productLightsaber);
         await paymentsPage.navigateToThePaymentsPage();
-    })
-
-    test('Scenario: Validate payment summary', async ({ page }) => {
-        
-        await paymentsPage.assertPaymentSummaryFor(productLightsaber);
-        await paymentsPage.assertPaymentTotal(productLightsaber.price)
-    })
-
-    test('Scenario: Complete a purchase', async ({ page }) => {
         await paymentsPage.submitPayment('MBWay', paymentsPage.MBWayPayment);
-        await ordersPage.assertUserOnTheOrdersPage(); 
     })
 
-    test('Scenario: Block payment without method', async ({ page }) => {
-        await paymentsPage.submitPayment('MBWay', paymentsPage.MBWayPayment);
-        await paymentsPage.clickConfirmWithoutMethod();
-        // TBD - asssert on payment blocked 
+    test('Scenario: Display order details', async ({ page }) => {
+        await ordersPage.navigateToTheOrdersPage(); 
+        await ordersPage.assertLatestOrderDetails(productLightsaber);
     })
+
+   
 
 })

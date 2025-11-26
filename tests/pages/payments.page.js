@@ -18,6 +18,8 @@ export class PaymentsPage {
         this.MBWayPayment = page.getByTestId('payment-method-input-MBWay');
         this.totalAmount = page.getByTestId('payment-total');
         this.confirmPaymentButton = page.getByTestId('payment-confirm-button')
+        this.errorAlert = page.getByRole('alert'); 
+
 
 
     }
@@ -92,6 +94,11 @@ export class PaymentsPage {
         });
     }
 
+    async assertPaymentBlockedWithoutMethod() {
+    await test.step('Assert payment is blocked when no method selected', async () => {
+      await expect(this.errorAlert).toBeVisible();
+    });
+  }
 
 
 }
