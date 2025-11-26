@@ -92,7 +92,7 @@ Using CatalogPage:
 
 ⸻
 
-🛒 Cart (tests/specs/cart.spec.js)
+Cart (tests/specs/cart.spec.js)
 
 Using CartPage:
 	•	Scenario – Display cart items and totals
