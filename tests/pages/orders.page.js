@@ -45,4 +45,11 @@ export class OrdersPage {
             }
         })
     }
+
+    async assertUserOnTheOrdersPage() {
+        await test.step('Confirm that the user is on the orders page', async () => {
+            await expect(page.getByRole('heading', { name: /orders/i })).toBeVisible();
+
+        })
+    }
 }

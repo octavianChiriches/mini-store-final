@@ -10,12 +10,16 @@ export class PaymentsPage {
     /**
      * @param {Page} page - The Playwright Page instance;
      */
-    constructor(page){ 
-        this.page = page; 
+    constructor(page) {
+        this.page = page;
 
         this.paymentsTabButton = page.getByTestId('store-tab-payments')
         this.confirmButton = page.getByTestId('payment-confirm-button');
         this.MBWayPayment = page.getByTestId('payment-method-input-MBWay');
+        this.totalAmount = page.getByTestId('payment-total');
+        this.confirmPaymentButton = page.getByTestId('payment-confirm-button')
+
+
     }
 
     /**
@@ -24,8 +28,12 @@ export class PaymentsPage {
      */
     async navigateToThePaymentsPage() {
         await test.step('Navigate to the Payments page', async () => {
-            await this.paymentsTabButton.click(); 
+            await this.paymentsTabButton.click();
         })
+    }
+
+    getSummaryRowForProduct(product) {
+        return this.page.locator('li').filter({ hasText: product.name });
     }
 
     /**
@@ -35,10 +43,10 @@ export class PaymentsPage {
      * @param {string} methodName - The name of the payment method 
      * @returns {Promise<void>}
      */
-    async submitPayment(methodName, locator) { 
-        await test.step(`Confirm payment using ${methodName} payment`, async () => { 
-            await locator.click(); 
-            await this.confirmButton.click(); 
+    async submitPayment(methodName, locator) {
+        await test.step(`Confirm payment using ${methodName} payment`, async () => {
+            await locator.click();
+            await this.confirmButton.click();
         })
     }
 
@@ -49,8 +57,41 @@ export class PaymentsPage {
      */
     async clickConfirmWithoutMethod() {
         await test.step('Confirm payment without cheking a payment method', async () => {
-            await this.confirmButton.click(); 
+            await this.confirmButton.click();
 
         })
     }
+
+    async confirmPayment() {
+        await test.step('Click Confirm Payment', async () => {
+            await this.confirmPaymentButton.click();
+        });
+    }
+
+
+    async assertUserOnPaymentsPage() {
+        await test.step('Confirm that the user is on the payments page', async () => {
+            await expect(this.MBWayPayment).toBeVisible();
+
+        })
+    }
+
+    async assertPaymentSummaryFor(product) {
+        await test.step(`Assert payment summary shows ${product.name} with qty & subtotal`, async () => {
+            const row = this.getSummaryRowForProduct(product);
+            await expect(row).toBeVisible();
+            await expect(row).toContainText(product.name);
+            await expect(row).toContainText(/\d+\s*x/);
+            await expect(row).toContainText(/€\d+(\.\d+)?/);
+        });
+    }
+
+    async assertPaymentTotal(expectedText) {
+        await test.step(`Assert Payment total is ${expectedText}`, async () => {
+            await expect(this.totalAmount).toContainText(expectedText);
+        });
+    }
+
+
+
 }
