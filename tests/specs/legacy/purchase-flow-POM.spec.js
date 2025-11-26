@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { InventoryPage } from '../pages/inventory.page';
-import { CatalogPage } from '../pages/catalog.page';
-import { CartPage } from '../pages/cart.page';
-import { PaymentsPage } from '../pages/payments.page';
-import { OrdersPage } from '../pages/orders.page'; 
+import { InventoryPage } from '../../pages/inventory.page';
+import { CatalogPage } from '../../pages/catalog.page';
+import { CartPage } from '../../pages/cart.page';
+import { PaymentsPage } from '../../pages/payments.page';
+import { OrdersPage } from '../../pages/orders.page'; 
 
 test.describe('Day 2: Page Object Model Refactoring', () => {
     test('Happy Path: User can purchase an item using POM', async ({page}) => {
