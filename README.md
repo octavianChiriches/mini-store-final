@@ -4,7 +4,7 @@ Here’s a ready-to-paste README.md for your mini-store-final project, plus step
 
 1️⃣ README.md (copy-paste this)
 
-# Mini Store – Playwright Final Project 🧪🛒
+# Mini Store – Playwright Final Project 
 
 This project is an end-to-end test suite for the **Playwright Mini Store Playground**, implemented using:
 
@@ -58,7 +58,7 @@ tests/
 
 What’s Covered
 
-🧱 Inventory (tests/specs/inventory.spec.js)
+ Inventory (tests/specs/inventory.spec.js)
 
 Using InventoryPage:
 	•	Scenario 1 – Add a new product to inventory
@@ -76,7 +76,7 @@ Using InventoryPage:
 
 ⸻
 
-🏪 Catalog (tests/specs/catalog.spec.js)
+ Catalog (tests/specs/catalog.spec.js)
 
 Using CatalogPage:
 	•	Scenario 1 – Add an item to the cart from the catalog
@@ -107,7 +107,7 @@ Using CartPage:
 
 ⸻
 
-💳 Payments (tests/specs/payments.spec.js)
+ Payments (tests/specs/payments.spec.js)
 
 Using PaymentsPage:
 	•	Scenario – Validate payment summary
@@ -125,7 +125,7 @@ Using PaymentsPage:
 
 ⸻
 
-📦 Orders (tests/specs/orders.spec.js)
+ Orders (tests/specs/orders.spec.js)
 
 Using OrdersPage:
 	•	Scenario – Display past orders
