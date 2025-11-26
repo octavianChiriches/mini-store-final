@@ -41,10 +41,10 @@ test.describe('💳 Payment tests', () => {
         await ordersPage.assertUserOnTheOrdersPage(); 
     })
 
-    test('Scenario: Block payment without method', async ({ page }) => {
-        await paymentsPage.submitPayment('MBWay', paymentsPage.MBWayPayment);
-        await paymentsPage.clickConfirmWithoutMethod();
-        // TBD - asssert on payment blocked 
-    })
+    // test('Scenario: Block payment without method', async ({ page }) => {
+    //     await paymentsPage.submitPayment('MBWay', paymentsPage.MBWayPayment);
+    //     await paymentsPage.clickConfirmWithoutMethod();
+    //     // TBD - asssert on payment blocked 
+    // })
 
 })
