@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { CATALOG_PRODUCTS } from '../data/catalog.data';
-import { CatalogPage } from '/Users/chirichesoctavian-leonard/Documents/GitHub/mini-store-final/tests/pages/catalog.page';
+import { CatalogPage } from '../pages/catalog.page';
 
 
 test.describe('🏪 Catalog tests', () => {
